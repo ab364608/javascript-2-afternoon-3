@@ -116,9 +116,13 @@ contains(names, 'Colt', function(result){
 
 //Code Here
 function uniq(arr,cb){
-  var deDuplicated = arr.filter(function(cur,ind,arr){
-    return arr.indexOf(cur) == ind});
-    cb(deDuplicated)
+  let result = []
+  for (let i = 0; i < arr.length; i++){
+    if (result.indexOf(arr[i]) === -1){
+      result.push(arr[i])
+    }
+  }
+  callback(result);
 }
 // Do not edit the code below.
 uniq(names, function(uniqArr){
@@ -137,10 +141,9 @@ uniq(names, function(uniqArr){
 
 //Code Here 
 function each (arr,cb){
-  for(var i = 0; i < arr,length; i++){
+  for(var i = 0; i < arr.length; i++){
     cb(arr[i],i)
   }
-  arr.forEach((cur, i)=>cb(cur, i))
 }
 // Do not edit the code below.
 each(names, function(item, indice){
